@@ -1,3 +1,57 @@
+
+```mermaid
+graph TD
+    subgraph Initialization
+        A[Create Manager Instance]
+    end
+
+    subgraph Configuration
+        B[Set File Extension]
+        C[Set Exclude Extensions]
+        D[Set Sync Paths]
+    end
+
+    subgraph Language File Management
+        E[Get Language Files]
+        F[Generate New Language]
+        G[Create Language File]
+        H[Filter by Included File Names]
+        I[Filter by Excluded File Names]
+    end
+
+    subgraph Translation Operations
+        J[Get JSON Files Content]
+        K[Fill Keys]
+        L[Remove Key]
+        M[Write File]
+    end
+
+    subgraph Language Analysis
+        N[Get Supported Languages]
+        O[Get Supported Language Codes]
+    end
+
+    A --> B
+    A --> C
+    A --> D
+
+    B --> E
+    C --> I
+    D --> F
+
+    E --> J
+    F --> G
+    E --> N
+
+    J --> K
+    J --> L
+    K --> M
+    L --> M
+    M --> E
+
+    N --> O
+```
+
 # `Manager` Class Documentation
 
 The `Manager` class is part of the `App\Overrides\Langman` namespace and is designed to manage language files within a Laravel application. It provides methods for reading, writing, and manipulating language files, including support for JSON and PHP file formats. Below is the documentation for this class, explaining its properties and methods.
